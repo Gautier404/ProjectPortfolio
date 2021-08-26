@@ -1,18 +1,35 @@
-import logo from './logo.svg';
+import texture from './SVGTEXTURE1.svg';
 import './App.css';
 import React, { useState } from 'react';
 import {cards} from './Cards.js'
+import { CSSTransition } from 'react-transition-group';
+
 //import the header card
 
 //Function that creates one block of the website from object
-function renderCard(cardIndex) {
-  var card = cards[cardIndex]
+function Card(props) {
+  var card = cards[props.cardIndex]
+  
   return(
-    <div>
-      <h1>{card.title}</h1>
-      <p>priority: {card.priority}</p>
-      <p>mechanical priority: {card.mPriority}</p>
+    <CSSTransition
+      in={props.expanded[props.cardIndex]}
+      timeout={300}
+      classNames="card"
+    >
+    <div className ="card">
+        <h1>{card.title}</h1>
+        <p>priority: {card.priority}</p>
+        <p>mechanical priority: {card.mPriority}</p>
+        <p>{props.expanded[props.cardIndex] && card.gitHub}</p>
+        <button 
+          onClick={() => {
+            let newExpanded = [...props.expanded];
+            newExpanded[props.cardIndex] = !newExpanded[props.cardIndex];
+            props.setter(newExpanded)}
+            }>
+      </button>
     </div>
+    </CSSTransition>
   )
 }
 
@@ -37,14 +54,21 @@ function sortCards(priorityType, cards) {
 }
 
 //function that will display the list of projects in order based on the state of the button
-function displayCards(status){
+function DisplayCards(props){
+  const [expanded, setExpanded] = useState(new Array(cards.length).fill(false));
+
   var priorityList = sortCards("priority", cards);
   var mPriorityList = sortCards("mPriority", cards);
-  if(status){ 
-    return (priorityList.map(renderCard))
-  } else {
-    return (mPriorityList.map(renderCard))
+
+  let HTMLCards = []
+  if(props.status){
+    priorityList.forEach((item)=>{HTMLCards.push(<Card cardIndex = {item} expanded = {expanded} setter = {setExpanded}/>)});
+  }else{
+    mPriorityList.forEach((item)=>{HTMLCards.push(<Card cardIndex = {item} expanded = {expanded} setter = {setExpanded}/>)});
   }
+  return (
+    <div> {HTMLCards} </div>
+  )
 }
 
 function App() {
@@ -54,7 +78,8 @@ function App() {
       <button onClick={() => setStatus(!status)}>
         {status ? "just regular Priority": "mechanical"}
       </button>
-      {displayCards(status)}
+      <DisplayCards status = {status}></DisplayCards>
+      <img src={texture} alt="React Logo" />
     </div>
   );
 }
