@@ -10,7 +10,6 @@ export let cards = [
         title:"Project2",
         mPriority: 1,
         gitHub:"asdf",
-        
     },
     {   
         priority: 10,
