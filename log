@@ -1,0 +1,7 @@
+8/25/2021
+Worked on getting the basic card switching and expansion logic implace. Started work on basic animations of the cards
+as they expand and contract.
+
+8/26/2021
+Got the card switching and card expansion animations to work. Fixed up some bugs with both.
+Created switch component that shuffles the cards and continued work on the wireframe

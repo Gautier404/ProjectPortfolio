@@ -6,22 +6,78 @@
   --nav-size: 60px;
   --border: 1px solid #474a4d;
   --border-radius: 2rem;
-  --speed: 500ms; 
+  --speed: 500ms;
+  --page-width: 60%;
 }
 
+p {
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size:2rem;
+}
+/* Container */
 .App {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
 }
 
 .AppContent{
-  text-align: center;
-  width: 60%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  grid-column:2/3;
+}
+
+@media only screen and (max-width: 600px) {
+  .AppContent {
+    grid-column:1/4;
+  }
+}
+
+/* Header */
+.Header {
+  aspect-ratio:16/9;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.HeaderLeft {
+  flex: 2;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+
+
+}
+.HeaderImage {
+  aspect-ratio: 1/1;
+  width:60%;
+  border-radius: 300px;
+}
+
+.HeaderRight {
+  flex: 3;
+  text-align: left;
+  padding-left: 40px;
+  padding-right: 40px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.HeaderTitle {
+  font-size: 48px;
+  margin-block-end: 0em;
+  margin-block-start:.5em;
+  font-family: 'Lato', sans-serif;
 }
 /* Switch */
 .Switch {
@@ -35,6 +91,7 @@
   background-color: white;
   border-radius: var(--border-radius);
   border: var(--border);
+  margin-left:20px;
 }
 
 .SwitchChild1 {
@@ -62,7 +119,11 @@
 }
 
 /* Cards */
-.card {
+.CardStack {
+  width: 100%;
+}
+
+.Card {
   transition: all var(--speed) ease;
   background-color: none;
   overflow: hidden;

@@ -3,6 +3,7 @@ import './App.css';
 import React, { useState, useRef, useEffect } from 'react';
 import {CardStack} from './Components/CardStack'
 import {Switch} from './Components/Switch'
+import {Header} from './Components/Header'
 //import the header card
 
 
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <div className="AppContent">
+        <Header/>
         <Switch status = {status} setStatus = {setStatus}></Switch>
         <CardStack status = {status}></CardStack>
         <img src={texture} alt="React Logo" />

@@ -25,7 +25,7 @@ export function CardStack(props){
       mPriorityList.forEach((item)=>{ HTMLCards.push(<Card cardIndex = {item} key = {cards[item].title} expanded = {expanded} setter = {setExpanded}/>)});
     }
     return (
-      <FlipMove>
+      <FlipMove className = "CardStack">
         {
           props.status ? 
           priorityList.map((item)=>{return <div key = {cards[item].title}><Card cardIndex = {item}  expanded = {expanded} setter = {setExpanded}/></div>}) :
@@ -50,19 +50,18 @@ function Card(props){
     
     console.log(test)
     return(
-      <div style = {{height:cardHeight, transition: "height var(--speed) ease"}}  className ="card">
+      <div style = {{height:cardHeight, transition: "height var(--speed) ease"}}  className ="Card">
       <CSSTransition
         in={props.expanded[props.cardIndex]}
         timeout={0}
-        classNames="card"
+        classNames="Card"
         onEnter={calcHeight}
         onExit={calcHeight}
       >
       <div>
           <h1>{card.title}</h1>
-          <p>priority: {card.priority}</p>
-          <p>mechanical priority: {card.mPriority}</p>
-          <p>{props.expanded[props.cardIndex] && card.gitHub}</p>
+          <p>{card.summary}</p>
+          {props.expanded[props.cardIndex] && card.content}
           <button 
             onClick={() => {
               let newExpanded = [...props.expanded];
