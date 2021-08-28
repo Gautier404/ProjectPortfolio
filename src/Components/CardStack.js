@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import {cards} from './ProjectInfo.js'
 import { CSSTransition } from 'react-transition-group';
 import FlipMove from 'react-flip-move';
+import {IconBar} from './IconBar'
 
 //function that will display the list of projects in order based on the state of the button
 export function CardStack(props){
@@ -59,7 +60,10 @@ function Card(props){
         onExit={calcHeight}
       >
       <div>
-          <h1>{card.title}</h1>
+        <div className = "CTop">
+          <h1 className = "CTitle">{card.title}</h1>
+          <IconBar links = {card.links}></IconBar>
+        </div>
           <p>{card.summary}</p>
           {props.expanded[props.cardIndex] && card.content}
           <button 
@@ -68,7 +72,8 @@ function Card(props){
               newExpanded[props.cardIndex] = !newExpanded[props.cardIndex];
               props.setter(newExpanded)
             }}>
-        Boop</button>
+          Boop
+          </button>
       </div>
       </CSSTransition>
       </div>

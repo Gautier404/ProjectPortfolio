@@ -1,9 +1,12 @@
 export let cards = [
     {   
-        priority: 0,
         title: "Project1",
+        priority: 0,
         mPriority: 5,
-        gitHub: "link",
+        links: {
+            github: "https://github.com/Gautier404/gautier404.github.io",
+            linkedIn: "https://www.linkedin.com/feed/",
+        },
         summary:"doap do bop doobop doobop",
         content: 
             <div>
@@ -15,10 +18,13 @@ export let cards = [
             </div>
     },
     {   
-        priority: 2,
         title:"Project2",
+        priority: 2,
         mPriority: 1,
-        gitHub:"asdf",
+        links: {
+            github: "https://github.com/Gautier404/gautier404.github.io",
+            linkedIn: "https://www.linkedin.com/feed/",
+        },
         summary:"doap do bop doobop doobop",
         content: 
             <div>
@@ -30,10 +36,13 @@ export let cards = [
             </div>,
     },
     {   
-        priority: 10,
         title:"Project3",
+        priority: 10,
         mPriority: 3,
-        gitHub:"asdfasdf",
+        links: {
+            github: "https://github.com/Gautier404/gautier404.github.io",
+            linkedIn: "https://www.linkedin.com/feed/",
+        },
         summary:"doap do bop doobop doobop",
         content: 
             <div>

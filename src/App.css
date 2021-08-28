@@ -173,3 +173,28 @@ h2 {
   background-size: 80%;
   background-image: url(./Assets/CardBackgroundComic.png);
 }
+
+.CTop {
+  display: flex;
+  flex-direction:row;
+}
+
+.CTitle{
+  flex: 1;
+}
+
+/* Icon Bar */
+
+.IBContainer {
+  display: flex;
+}
+
+.IBItem {
+  width: 3vw;
+  padding: .5vw;
+}
+
+.IBItem:hover {
+  width: 4vw;
+  padding: 0vw;
+}

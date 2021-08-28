@@ -1,8 +1,15 @@
 import React from 'react';
 import face from '../Assets/Me.jpg'
+import {IconBar} from './IconBar'
+
 export function Header(props) {
+    const testLinks = {
+        github: "https://github.com/Gautier404/gautier404.github.io",
+        linkedIn: "https://www.linkedin.com/feed/",
+        };
     return (
         <div className = "Header">
+            <IconBar links = {testLinks}/>
             <div className = "HeaderLeft">
                 <img className = "HeaderImage" src ={face}></img>
             </div>
