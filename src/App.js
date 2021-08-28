@@ -15,7 +15,6 @@ function App() {
         <Header/>
         <Switch status = {status} setStatus = {setStatus}></Switch>
         <CardStack status = {status}></CardStack>
-        <img src={texture} alt="React Logo" />
         </div>
     </div>
   );

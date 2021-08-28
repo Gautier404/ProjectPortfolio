@@ -5,3 +5,12 @@ as they expand and contract.
 8/26/2021
 Got the card switching and card expansion animations to work. Fixed up some bugs with both.
 Created switch component that shuffles the cards and continued work on the wireframe
+
+8/27/2021
+More experimenting with the styling of the app in illustrator and figma.
+Incorperated more complex content rendering from the card.
+Worked on the base styling of the Header component.
+WOrked on the theme of the p h1 h2 tags and figured out how to import a font.
+
+8/28/2021
+Added backgrounds to the Header and Card components

@@ -28,8 +28,8 @@ export function CardStack(props){
       <FlipMove className = "CardStack">
         {
           props.status ? 
-          priorityList.map((item)=>{return <div key = {cards[item].title}><Card cardIndex = {item}  expanded = {expanded} setter = {setExpanded}/></div>}) :
-          mPriorityList.map((item)=>{return <div key = {cards[item].title}><Card cardIndex = {item}  expanded = {expanded} setter = {setExpanded}/></div>})
+          priorityList.map((item, index)=>{return <div key = {cards[item].title}><Card cardIndex = {item}  orderIndex = {index} expanded = {expanded} setter = {setExpanded}/></div>}) :
+          mPriorityList.map((item, index)=>{return <div key = {cards[item].title}><Card cardIndex = {item}  orderIndex = {index} expanded = {expanded} setter = {setExpanded}/></div>})
         }
       </FlipMove> 
     )
@@ -40,9 +40,9 @@ function Card(props){
     const card = cards[props.cardIndex]
     const test = useRef(null);
     const [cardHeight, setCardHeight] = useState(test.clientHeight);
+    const backgrounds = [ "CBPoka", "CBWaves", "CBBamboo","CBHatch", "CBComic"]
     //const originalHeight = el.offsetHeight;
     
-
     function calcHeight(el) {
       const height = el.offsetHeight;
       setCardHeight(height);
@@ -50,7 +50,7 @@ function Card(props){
     
     console.log(test)
     return(
-      <div style = {{height:cardHeight, transition: "height var(--speed) ease"}}  className ="Card">
+      <div style = {{height:cardHeight, transition: "height var(--speed) ease"}} className = {backgrounds[props.orderIndex % backgrounds.length]}>
       <CSSTransition
         in={props.expanded[props.cardIndex]}
         timeout={0}
