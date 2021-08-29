@@ -9,7 +9,9 @@ export function Header(props) {
         };
     return (
         <div className = "Header">
-            <IconBar links = {testLinks}/>
+            <div className = "HeaderTop">
+                <IconBar links = {testLinks}/>
+            </div>
             <div className = "HeaderLeft">
                 <img className = "HeaderImage" src ={face}></img>
             </div>

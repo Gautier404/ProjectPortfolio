@@ -1,11 +1,12 @@
 import React from 'react';
-
+import everythingIcon from '../Assets/EverythingIcon.svg'
+import gearIcon from '../Assets/GearIcon.svg'
 export function Switch(props) {
     return(
             <button className = "Switch" onClick={() => props.setStatus(!props.status)}>
-                <p className = "SwitchChild1">Show me Mechanical Engineering Oriented Projects</p>
-                <p className = "SwitchChild2">Show me Everything!</p>
-                <div className = "SwitchLever" style = {props.status?{transform: "translateX(0%)"}:{transform: "translateX(100%)"}}></div>
+                <div className = "SwitchChild1"><img  src = {gearIcon}/></div>
+                <div  className = "SwitchChild2"><img src = {everythingIcon}></img></div>
+                <div className = "SwitchLever" style = {props.status?{transform: "translateX(0%)"}:{transform: "translateX(98%)"}}></div>
             </button>
     )
 }

@@ -6,6 +6,7 @@ export let cards = [
         links: {
             github: "https://github.com/Gautier404/gautier404.github.io",
             linkedIn: "https://www.linkedin.com/feed/",
+            devpost: "https://devpost.com/"
         },
         summary:"doap do bop doobop doobop",
         content: 

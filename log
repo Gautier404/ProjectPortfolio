@@ -14,3 +14,8 @@ WOrked on the theme of the p h1 h2 tags and figured out how to import a font.
 
 8/28/2021
 Added backgrounds to the Header and Card components
+Started the icon bar component
+
+8/29/20201
+Finished the Header component
+incorperated icons into the switch component
