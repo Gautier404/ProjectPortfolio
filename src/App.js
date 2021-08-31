@@ -1,15 +1,11 @@
-import texture from './Assets/SVGTEXTURE1.svg';
 import './App.css';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState} from 'react';
 import {CardStack} from './Components/CardStack'
 import {Switch} from './Components/Switch'
 import {Header} from './Components/Header'
-import {IconBar} from './Components/IconBar'
-//import the header card
-
 
 function App() {
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState(true);
   
   return (
     <div className="App">

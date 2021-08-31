@@ -4,8 +4,8 @@ import {IconBar} from './IconBar'
 
 export function Header(props) {
     const testLinks = {
-        github: "https://github.com/Gautier404/gautier404.github.io",
-        linkedIn: "https://www.linkedin.com/feed/",
+        github: "https://github.com/Gautier404",
+        linkedIn: "https://www.linkedin.com/in/andrewjgautier/",
         };
     return (
         <div className = "Header">
@@ -20,7 +20,7 @@ export function Header(props) {
                     Hello, my name is Drew
                 </p>
                 <p>
-                    and this is a website I created to showcase projects I work on outside of school. Toggle the switch below to sort between more mechanical engineering oriented projects or everything I do.
+                    and this is a website I created to showcase the projects I work on. Toggle the switch below to sort between more mechanical engineering oriented projects or everything I do.
                 </p>
             </div>
         </div>

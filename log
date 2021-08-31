@@ -16,6 +16,11 @@ WOrked on the theme of the p h1 h2 tags and figured out how to import a font.
 Added backgrounds to the Header and Card components
 Started the icon bar component
 
-8/29/20201
+8/29/2021
 Finished the Header component
 incorperated icons into the switch component
+Made the icons change color depending on where the switch is
+
+8/30/2021
+Just some small modifications to things
+worked on adding some content for TasteBuds

@@ -29,8 +29,8 @@ export function CardStack(props){
       <FlipMove className = "CardStack">
         {
           props.status ? 
-          priorityList.map((item, index)=>{return <div key = {cards[item].title}><Card cardIndex = {item}  orderIndex = {index} expanded = {expanded} setter = {setExpanded}/></div>}) :
-          mPriorityList.map((item, index)=>{return <div key = {cards[item].title}><Card cardIndex = {item}  orderIndex = {index} expanded = {expanded} setter = {setExpanded}/></div>})
+          mPriorityList.map((item, index)=>{return <div key = {cards[item].title}><Card cardIndex = {item}  orderIndex = {index} expanded = {expanded} setter = {setExpanded}/></div>}):
+          priorityList.map((item, index)=>{return <div key = {cards[item].title}><Card cardIndex = {item}  orderIndex = {index} expanded = {expanded} setter = {setExpanded}/></div>}) 
         }
       </FlipMove> 
     )
@@ -67,12 +67,13 @@ function Card(props){
           <p>{card.summary}</p>
           {props.expanded[props.cardIndex] && card.content}
           <button 
+            className = "CButton"
             onClick={() => {
               let newExpanded = [...props.expanded];
               newExpanded[props.cardIndex] = !newExpanded[props.cardIndex];
               props.setter(newExpanded)
             }}>
-          Boop
+          <p>Boop for more >:D</p>
           </button>
       </div>
       </CSSTransition>

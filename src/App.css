@@ -17,10 +17,13 @@ p {
 
 h1 {
   font: 3vw 'Lato', sans-serif;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
 }
 
 h2 {
   font: 2vw 'Lato', sans-serif;
+
 }
 /* Container */
 .App {
@@ -102,7 +105,7 @@ h2 {
 }
 /* Switch */
 .Switch {
-  --switch-width:20%;
+  --switch-width:18%;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -115,10 +118,17 @@ h2 {
   background-image: url(./Assets/CardBackgroundComic.png);
 }
 
+.Switch:hover{
+  width: 20%;
+}
 .SwitchChild1 {
   grid-column: 1 / 2;
   grid-row: 1/2;
   z-index: 2;
+  height:80%;
+  /* -webkit-mask: url(./Assets/GearIcon.svg) no-repeat center;
+  mask: url(./Assets/GearIcon.svg) no-repeat center;
+  mask-size: 80%; */
 }
 
 .SwitchChild2 {
@@ -140,8 +150,8 @@ h2 {
   grid-row: 1/2;
   z-index: 1;
   background-color: var(--blue);
-  height: 99%;
-  width: 49.5%;
+  height: 100%;
+  width: 50%;
   transition: transform var(--speed) ease;
   border-radius: var(--border-radius);
 }
@@ -149,6 +159,7 @@ h2 {
 /* Cards */
 .CardStack {
   width: 100%;
+  margin-bottom:80%
 }
 
 .CBBamboo,
@@ -160,7 +171,6 @@ h2 {
   background-color: none;
   overflow: hidden;
   padding: 2vw;
-  padding-bottom: 4vw;
   margin-top: 2vw;
   border-radius: var(--border-radius);
 }
@@ -201,6 +211,22 @@ h2 {
   flex: 1;
 }
 
+.CButton{
+  background-color: var(--blue);
+  color: white;
+  border-radius: .7rem;
+  border:none;
+  padding: .5rem;
+}
+
+.CButton:hover{
+  padding:1rem;
+}
+.CButton>p{
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  font-size: 130%;
+}
 /* Icon Bar */
 
 .IBContainer {
