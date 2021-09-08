@@ -13,14 +13,14 @@ export function Header(props) {
                 <IconBar links = {testLinks}/>
             </div>
             <div className = "HeaderLeft">
-                <img className = "HeaderImage" src ={face}></img>
+                <img className = "HeaderImage" src ={face} alt = "Drew Gautier"></img>
             </div>
             <div className = "HeaderRight">
                 <p className = "HeaderTitle"> 
                     Hello, my name is Drew
                 </p>
                 <p>
-                    and this is a website I created to showcase the projects I work on. Toggle the switch below to sort between more mechanical engineering oriented projects or everything I do.
+                    and this is a website I created to showcase the projects I work on! Toggle the switch below to sort between more mechanical engineering oriented projects or everything I do.
                 </p>
             </div>
         </div>

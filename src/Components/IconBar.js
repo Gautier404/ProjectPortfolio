@@ -12,7 +12,7 @@ export function IconBar(props) {
 
     const items = [];
     for (const key in props.links) {
-        items.push(<a href = {props.links[key]}><img className = "IBItem" src = {linkIcons[key]}></img></a>)
+        items.push(<a href = {props.links[key]}><img className = "IBItem" src = {linkIcons[key]} alt = {`${key} logo link`}></img></a>)
     }
     
     return(

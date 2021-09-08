@@ -4,17 +4,11 @@ import { CSSTransition } from 'react-transition-group';
 import FlipMove from 'react-flip-move';
 import {IconBar} from './IconBar'
 
+
+
 //function that will display the list of projects in order based on the state of the button
 export function CardStack(props){
-    const [expanded, setExpanded] = useState(new Array(cards.length).fill(true));
-  
-    var onetime = true;
-    useEffect(()=>{
-      if(onetime){
-        setExpanded(new Array(cards.length).fill(false))
-      }
-      onetime = false;
-      }, [])
+    const [expanded, setExpanded] = useState(new Array(cards.length).fill(false));
     
     var priorityList = sortCards("priority", cards);
     var mPriorityList = sortCards("mPriority", cards);
@@ -38,6 +32,7 @@ export function CardStack(props){
 
 //Function that creates one block of the website from object
 function Card(props){
+  const [onetime, setOneTime] = useState(true);
     const card = cards[props.cardIndex]
     const test = useRef(null);
     const [cardHeight, setCardHeight] = useState(test.clientHeight);
@@ -51,7 +46,7 @@ function Card(props){
     
     console.log(test)
     return(
-      <div style = {{height:cardHeight, transition: "height var(--speed) ease"}} className = {backgrounds[props.orderIndex % backgrounds.length]}>
+      <div style = {{height:cardHeight, transition: "height var(--speed) ease", paddingBottom: onetime? "1vw": "0vw"}} className = {backgrounds[props.orderIndex % backgrounds.length]}>
       <CSSTransition
         in={props.expanded[props.cardIndex]}
         timeout={0}
@@ -64,16 +59,22 @@ function Card(props){
           <h1 className = "CTitle">{card.title}</h1>
           <IconBar links = {card.links}></IconBar>
         </div>
+        <div className = "CMiddle">
+          <img className = "CImage" src = {card.image} alt = "project"/>
           <p>{card.summary}</p>
+        </div>
+        
           {props.expanded[props.cardIndex] && card.content}
+        
           <button 
             className = "CButton"
             onClick={() => {
               let newExpanded = [...props.expanded];
               newExpanded[props.cardIndex] = !newExpanded[props.cardIndex];
-              props.setter(newExpanded)
+              props.setter(newExpanded);
+              setOneTime(false);
             }}>
-          <p>Boop for more >:D</p>
+          <p>{props.expanded[props.cardIndex]? "Boop for less :>" : "Boop for more >:D"}</p>
           </button>
       </div>
       </CSSTransition>
