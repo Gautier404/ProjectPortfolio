@@ -2,15 +2,17 @@ import React from 'react';
 import face from '../Assets/Me.jpg'
 import {IconBar} from './IconBar'
 
+//Component for the top of the website with my picture and name
 export function Header(props) {
-    const testLinks = {
+    //Links for the icon bar
+    const Links = {
         github: "https://github.com/Gautier404",
         linkedIn: "https://www.linkedin.com/in/andrewjgautier/",
         };
     return (
         <div className = "Header">
             <div className = "HeaderTop">
-                <IconBar links = {testLinks}/>
+                <IconBar links = {Links}/>
             </div>
             <div className = "HeaderLeft">
                 <img className = "HeaderImage" src ={face} alt = "Drew Gautier"></img>

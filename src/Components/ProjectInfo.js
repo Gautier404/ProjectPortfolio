@@ -3,12 +3,12 @@ import {Picture} from './Picture.js'
 
 import TasteBuds from '../Assets/TasteBuds.svg'
 import TasteBudsAppFlow from '../Assets/AppflowTasteBuds.png'
+
+
+//Object that contains all the content for the projects.
 //priority the higher the number the higher on the page it is
 //mpriority -> how important it is for recruiters from mechanical engineering fields to be looking at
 //alt+z for word wrap
-
-
-
 export let cards = [
     {   
         title: "TasteBuds",
@@ -27,7 +27,7 @@ export let cards = [
                 <Video link = "https://www.youtube.com/embed/ZMz_4wQKs1w"
                     description = "Here’s the demo video. Check out my cheesy acting at the end :D">
                 </Video>
-                <Picture link = {TasteBudsAppFlow} description = "TasteBuds App Flow"></Picture>
+                <Picture link = {TasteBudsAppFlow} description = "TasteBuds App Flow" height = "80vw"></Picture>
                 <h2>What I learned</h2>
                 <p>This was one of my first times developing a product with a team, so I think the most important thing I learned was how to work on a complex project with a team of specialized individuals. Most of my work revolved around how the app would be used and how our product was presented so there was a lot of communication between me and the rest of the team about the mechanics of our system. They are all much better at programing and electronics than I am, so I ended up picking up a lot of knowledge about mobile development, databases, rfid scanners, and Bluetooth. </p>
                 <h2>Tools I used</h2>

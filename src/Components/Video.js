@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Simple react component for the project info component that displays a centered video with a description
 export function Video(props){
     return (
         <div className = "VideoContainer">

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import {cards} from './ProjectInfo.js'
 import { CSSTransition } from 'react-transition-group';
 import FlipMove from 'react-flip-move';
@@ -6,21 +6,17 @@ import {IconBar} from './IconBar'
 
 
 
-//function that will display the list of projects in order based on the state of the button
+//Display the stack of cards using the cards object from ProjectInfo.js and the status of the switch
 export function CardStack(props){
-    const [expanded, setExpanded] = useState(new Array(cards.length).fill(false));
+    const [expanded, setExpanded] = useState(new Array(cards.length).fill(false)); //An array react tracks to see which cards are expanded
     
-    var priorityList = sortCards("priority", cards);
-    var mPriorityList = sortCards("mPriority", cards);
-  
-    let HTMLCards = []
-    if(props.status){
-      priorityList.forEach((item)=>{ HTMLCards.push(<Card cardIndex = {item} key = {cards[item].title} expanded = {expanded} setter = {setExpanded}/>)});
-    }else{
-      mPriorityList.forEach((item)=>{ HTMLCards.push(<Card cardIndex = {item} key = {cards[item].title} expanded = {expanded} setter = {setExpanded}/>)});
-    }
+    var priorityList = sortCards("priority", cards); //create array of cards that are in the order of regular priority
+    var mPriorityList = sortCards("mPriority", cards); //create array of cards that are in the order of mechanical priority
+
+    //conditionally render each list depending on which way the switch is
     return (
-      <FlipMove className = "CardStack">
+      //FlipMove used to animate the card switching order
+      <FlipMove className = "CardStack"> 
         {
           props.status ? 
           mPriorityList.map((item, index)=>{return <div key = {cards[item].title}><Card cardIndex = {item}  orderIndex = {index} expanded = {expanded} setter = {setExpanded}/></div>}):
@@ -30,24 +26,23 @@ export function CardStack(props){
     )
   }
 
-//Function that creates one block of the website from object
+//react element for a single card that can expand or contract
 function Card(props){
-  const [onetime, setOneTime] = useState(true);
-    const card = cards[props.cardIndex]
-    const test = useRef(null);
-    const [cardHeight, setCardHeight] = useState(test.clientHeight);
-    const backgrounds = [ "CBPoka", "CBWaves", "CBBamboo","CBHatch", "CBComic"]
-    //const originalHeight = el.offsetHeight;
+  const [onetime, setOneTime] = useState(true); //Used to give a little extra padding at the bottom of the card the first time it renders
+  const card = cards[props.cardIndex] //copy the current card object to a variable
+  const [cardHeight, setCardHeight] = useState(null); //used to track the card height for expansion and contraction of the card
+  const backgrounds = [ "CBPoka", "CBWaves", "CBBamboo","CBHatch", "CBComic"] //the different styles the cards can have
     
-    function calcHeight(el) {
-      const height = el.offsetHeight;
-      setCardHeight(height);
-    }
+  //Calculates the height of an element and changes height variable to the correct height
+  function calcHeight(el) {
+    const height = el.offsetHeight;
+    setCardHeight(height);
+  }
     
-    console.log(test)
     return(
       <div style = {{height:cardHeight, transition: "height var(--speed) ease", paddingBottom: onetime? "1vw": "0vw"}} className = {backgrounds[props.orderIndex % backgrounds.length]}>
-      <CSSTransition
+      {/* CSS Transition used for the the animation of expansion and contraction of the card */}
+      <CSSTransition 
         in={props.expanded[props.cardIndex]}
         timeout={0}
         classNames="Card"
@@ -83,7 +78,7 @@ function Card(props){
   }
 
 
-//Function that generates a list projects in order of mechanical priority and regular priority depending on some toggled value
+//Function that generates a list projects in order of mechanical priority or regular priority
 function sortCards(priorityType, cards) {
   var list = [0];
   var listLength = 1;
