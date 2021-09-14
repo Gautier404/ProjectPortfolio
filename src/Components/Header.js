@@ -22,7 +22,7 @@ export function Header(props) {
                     Hello, my name is Drew
                 </p>
                 <p>
-                    and this is a website I created to showcase the projects I work on! Toggle the switch below to sort between more mechanical engineering oriented projects or everything I do.
+                    and this is a website I created to showcase the projects I work on! Toggle the switch bellow to sort things between what I think is the most related to mechanical engineering or what I think is most cool.
                 </p>
             </div>
         </div>

@@ -13,20 +13,30 @@
 
 p,
 li {
-  font: 1.2vw 'Raleway', sans-serif;
+  font: 1.5vw 'Raleway', sans-serif;
 }
 
 h1 {
-  font: bold 2.8vw 'Lato', sans-serif;
+  font: bold 3vw 'Lato', sans-serif;
   margin-block-start: 0em;
   margin-block-end: 0em;
 }
 
 h2 {
-  font: 2vw 'Lato', sans-serif;
+  font: bold 2.3vw 'Lato', sans-serif;
   padding-top:2vw;
 
 }
+
+p a {
+  color: black;
+  transition: all  var(--speed) ease;
+}
+p a:hover {
+  color: white;
+  background-color:var(--blue);
+}
+
 /* Container */
 .App {
   display: grid;
@@ -120,6 +130,7 @@ h2 {
   background-image: url(./Assets/CardBackgroundComic.png);
   margin-top:1vw;
   margin-bottom: 1vw;
+  transition: all  100ms ease;
 }
 
 .Switch:hover{
@@ -173,7 +184,8 @@ h2 {
 /* Cards */
 .CardStack {
   width: 100%;
-  margin-bottom:80%
+  margin-bottom:80%;
+  transition: transform 750ms ease;
 }
 
 .CBBamboo,
@@ -184,7 +196,7 @@ h2 {
   transition: all var(--speed) ease;
   background-color: none;
   overflow: hidden;
-  padding: 2vw;
+  padding: 3vw;
   margin-top: 2vw;
   border-radius: var(--border-radius);
 }
@@ -208,7 +220,7 @@ h2 {
 
 .CBHatch{
   background-size: 50%;
-  background-image: url(./Assets/CardBackgroundBamboo.png);
+  background-image: url(./Assets/CardBackgroundHatch.png);
 }
 
 .CBComic{
@@ -227,10 +239,10 @@ h2 {
 }
 
 .CMiddle{
-  margin:2vw 0vw 2vw 0vw;
+  margin:1vw 0vw 1vw 0vw;
 }
 .CImage{
-  width:25%;
+  width:30%;
   padding-right:3vw;
 }
 .CButton{
@@ -241,6 +253,7 @@ h2 {
   padding: .5rem;
   margin-top: .25rem;
   margin-bottom: .5rem;
+  transition: all  100ms ease;
 }
 
 .CButton:hover{
@@ -260,12 +273,16 @@ h2 {
 
 .IBItem {
   width: 3vw;
+  height: 3vw;
   padding: .5vw;
+  transition: all  100ms ease;
 }
+
 
 .IBItem:focus,
 .IBItem:hover {
   width: 4vw;
+  height: 4vw;
   padding: 0vw;
 }
 
@@ -275,7 +292,8 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 8vw 2vw 8vw 2vw;
+  padding: 4vw 2vw 4vw 2vw;
+  text-align: center;
 }
 
 .Video{
@@ -289,8 +307,23 @@ h2 {
   align-items: center;
   justify-content: center;
   padding: 4vw 2vw 4vw 2vw;
+  text-align: center;
 }
 
 .Picture{
   border-radius: 3vw;
 }
+
+/* Scrollbar */
+::-webkit-scrollbar{
+  width: 2vh;
+}
+
+::-webkit-scrollbar-track{
+  background: rgb(242, 250, 255);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: .5vh;
+}
+

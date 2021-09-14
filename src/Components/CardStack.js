@@ -56,7 +56,10 @@ function Card(props){
         </div>
         <div className = "CMiddle">
           <img className = "CImage" src = {card.image} alt = "project"/>
-          <p>{card.summary}</p>
+          <div>
+            <p style = {{fontSize:"2vh"}}>{card.date}</p>
+            <p>{card.summary}</p>
+          </div>
         </div>
         
           {props.expanded[props.cardIndex] && card.content}
